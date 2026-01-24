@@ -1,0 +1,60 @@
+---
+// Reframed as "what you get" not "what we use"
+const capabilities = [
+  { 
+    category: 'Data Platform Delivery',
+    description: 'Warehouse, orchestration, transformation',
+    tools: ['Snowflake', 'dbt', 'Databricks', 'Airflow']
+  },
+  { 
+    category: 'AI & ML Delivery',
+    description: 'RAG, evals, observability, governance',
+    tools: ['OpenAI GPT', 'Claude', 'LangChain', 'Custom Models']
+  },
+  { 
+    category: 'Cloud & Security',
+    description: 'IAM, CI/CD, monitoring, compliance',
+    tools: ['AWS', 'Azure', 'GCP', 'Terraform', 'Datadog']
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="mb-16">
+      <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Technology Stack</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+        Enterprise-Grade Delivery
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Production-ready infrastructure, not proof-of-concepts
+      </p>
+    </div>
+
+    <!-- Capability Cards (collapsed by default) -->
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      {capabilities.map((cap) => (
+        <div class="bg-[#faf9f6] rounded-xl p-8 border border-gray-200">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{cap.category}</h3>
+          <p class="text-sm text-gray-600 mb-6">{cap.description}</p>
+          
+          <div class="flex flex-wrap gap-2">
+            {cap.tools.map((tool) => (
+              <span class="px-3 py-1 bg-white text-gray-700 text-xs font-medium rounded-lg border border-gray-200">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- View full stack toggle -->
+    <div class="text-center">
+      <button class="text-gray-600 hover:text-gray-900 text-sm font-semibold transition-colors">
+        View full tech stack →
+      </button>
+    </div>
+  </div>
+</section>
