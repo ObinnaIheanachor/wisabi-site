@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+// Placeholder case studies - replace with real content
+const caseStudies = [
+  {
+    slug: 'manufacturing-data-platform',
+    title: 'Modern Data Platform for UK Manufacturing Leader',
+    client: 'Global Manufacturing Company',
+    industry: 'Manufacturing',
+    tag: 'Data Platform',
+    tagColor: 'bg-brand-100 text-brand-700',
+    excerpt: 'Replaced legacy ETL with modern dbt + Snowflake architecture, reducing reporting time by 70%.',
+    metrics: [
+      { label: 'Reporting time', value: '70% faster' },
+      { label: 'Data quality', value: '95%+ tested' },
+      { label: 'Delivery', value: '8 weeks' }
+    ],
+    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=500&fit=crop',
+    published: '2024-01-15'
+  },
+  {
+    slug: 'document-ai-fintech',
+    title: 'AI-Powered Document Processing for Fintech Scale-up',
+    client: 'Financial Services Platform',
+    industry: 'Fintech',
+    tag: 'AI Products',
+    tagColor: 'bg-violet-100 text-violet-700',
+    excerpt: 'Built RAG-powered document extraction system saving 40 hours/week in manual processing.',
+    metrics: [
+      { label: 'Time saved', value: '40 hrs/week' },
+      { label: 'Accuracy', value: '98%' },
+      { label: 'Cost reduction', value: '£120k/year' }
+    ],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    published: '2024-01-10'
+  },
+  {
+    slug: 'automation-fmcg',
+    title: 'Supply Chain Automation for Global FMCG Brand',
+    client: 'Fortune 500 FMCG Company',
+    industry: 'FMCG',
+    tag: 'Automation',
+    tagColor: 'bg-amber-100 text-amber-700',
+    excerpt: 'Automated reporting workflows and eliminated 30+ hours of manual work per week.',
+    metrics: [
+      { label: 'Manual work', value: '30 hrs saved' },
+      { label: 'Error rate', value: '99% reduced' },
+      { label: 'ROI', value: '4 months' }
+    ],
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=500&fit=crop',
+    published: '2023-12-20'
+  }
+];
+
+const industries = ['All', 'Manufacturing', 'Fintech', 'FMCG'];
+const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
+---
+
+<Layout 
+  title="Case Studies - Wisabi Analytics" 
+  description="Real results from real projects. See how we've helped companies transform their data and AI capabilities.">
+  <Navigation />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          Case Studies
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Real outcomes from real projects. See how we've helped companies across manufacturing, fintech, and FMCG transform their data and AI capabilities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="pb-12 bg-white border-b border-gray-200">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <div>
+          <p class="text-sm font-semibold text-gray-500 mb-2">Industry</p>
+          <div class="flex flex-wrap gap-2">
+            {industries.map((industry) => (
+              <button class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${industry === 'All' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                {industry}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-gray-500 mb-2">Service</p>
+          <div class="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <button class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tag === 'All' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {caseStudies.map((study) => (
+          <article class="group">
+            <a href={`/case-studies/${study.slug}`} class="block">
+              <!-- Image -->
+              <div class="relative overflow-hidden rounded-xl mb-4 aspect-[16/10] bg-gray-100">
+                <img 
+                  src={study.image} 
+                  alt={study.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-4 left-4">
+                  <span class={`px-3 py-1 rounded-lg text-xs font-semibold ${study.tagColor}`}>
+                    {study.tag}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div>
+                <p class="text-sm text-gray-500 mb-2">{study.industry}</p>
+                <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
+                  {study.title}
+                </h2>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  {study.excerpt}
+                </p>
+
+                <!-- Metrics -->
+                <div class="grid grid-cols-3 gap-3">
+                  {study.metrics.map((metric) => (
+                    <div>
+                      <p class="text-xs text-gray-500">{metric.label}</p>
+                      <p class="text-sm font-bold text-gray-900">{metric.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <!-- More Coming Soon -->
+      <div class="mt-16 text-center py-12 border-2 border-dashed border-gray-300 rounded-2xl">
+        <p class="text-gray-600 mb-4">More case studies coming soon</p>
+        <p class="text-sm text-gray-500">
+          Interested in becoming a case study? <button 
+             data-cal-link="wisabianalytics/initial-consultation"
+             data-cal-namespace="initial-consultation"
+             class="text-brand-600 font-semibold hover:underline">Let's talk</button>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

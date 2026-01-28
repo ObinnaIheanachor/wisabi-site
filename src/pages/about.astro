@@ -1,63 +1,123 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<Layout 
+  title="About - Wisabi Analytics" 
+  description="We're a data and AI consultancy helping companies build production-grade systems in weeks, not quarters.">
+  <Navigation />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          About Wisabi Analytics
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          We're a data and AI consultancy that specializes in turning ambitious ideas into production-ready systems fast.
+        </p>
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+  <!-- Story -->
+  <section class="pb-20 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-16">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              Wisabi Analytics was founded on a simple observation: most companies struggle with the gap between "we need data/AI" and "we're getting value from data/AI."
+            </p>
+            <p>
+              After years of working across manufacturing, fintech, health, and FMCG, industries, we saw the same patterns: great ambitions, slow execution, and too much reliance on external consultants.
+            </p>
+            <p>
+              We built Wisabi to change that. We deliver production-grade systems in weeks, not quarters. We train your team so you're self-sufficient. And we focus obsessively on outcomes, not billable hours.
+            </p>
+          </div>
+        </div>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">What We Believe</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Speed matters</h3>
+              <p class="text-gray-600">
+                Velocity compounds. We ship working systems in weeks so you can start learning and iterating.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Outcomes over outputs</h3>
+              <p class="text-gray-600">
+                We measure success by what changes in your business, not lines of code or hours billed.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Build for handover</h3>
+              <p class="text-gray-600">
+                We design every system to be operated by your team. Consulting dependency is a bug, not a feature.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Modern stack, proven patterns</h3>
+              <p class="text-gray-600">
+                We use battle-tested tools and architectures. No experiments on your time and budget.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+  <!-- Stats -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">By the Numbers</h2>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-brand-600 mb-2">3,000+</div>
+          <p class="text-gray-600">Professionals trained</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-brand-600 mb-2">10+</div>
+          <p class="text-gray-600">Enterprise clients</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-brand-600 mb-2">5+</div>
+          <p class="text-gray-600">Years in data & AI</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-brand-600 mb-2">95%+</div>
+          <p class="text-gray-600">Client satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+  <!-- CTA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        Let's Build Something Together
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        Ready to move from planning to production?
+      </p>
+      <button 
+         data-cal-link="wisabianalytics/initial-consultation"
+         data-cal-namespace="initial-consultation"
+         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+         class="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+        Book a Consultation
+      </button>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>

@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'data-platforms',
+    title: 'Data Platforms',
+    tagline: 'Modern infrastructure that scales with your business',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`,
+    description: 'We build production-ready data platforms that replace legacy ETL systems with modern, cloud-native architecture.',
+    whatWeDeliver: [
+      'Data warehouse implementation (Snowflake, BigQuery, Databricks)',
+      'dbt transformation layers with testing & documentation',
+      'Orchestration with Airflow, Dagster, or Prefect',
+      'Data quality monitoring and observability',
+      'Self-service analytics enablement'
+    ],
+    idealFor: [
+      'Companies outgrowing spreadsheets and manual reporting',
+      'Teams drowning in technical debt from legacy ETL',
+      'Organizations needing real-time analytics',
+      'Businesses preparing for AI/ML initiatives'
+    ],
+    outcomes: [
+      '30-70% reduction in reporting time',
+      'Single source of truth for business metrics',
+      '95%+ data quality with automated testing',
+      'Self-service analytics for non-technical teams'
+    ],
+    timeline: '4-8 weeks for MVP, 12-16 weeks for full platform'
+  },
+  {
+    id: 'automation',
+    title: 'Automation & Developer Tools',
+    tagline: 'Internal tools that eliminate repetitive work',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`,
+    description: 'Custom automation and internal tooling that saves your team hours every week.',
+    whatWeDeliver: [
+      'CLI tools and scripts for common workflows',
+      'CI/CD pipeline optimization',
+      'Internal APIs and microservices',
+      'Automated reporting and notifications',
+      'Integration layers between systems'
+    ],
+    idealFor: [
+      'Engineering teams doing repetitive manual tasks',
+      'Companies with disconnected systems',
+      'Teams spending hours on deployment/testing',
+      'Organizations needing custom integrations'
+    ],
+    outcomes: [
+      '20-40 hours/week saved per team',
+      'Zero-downtime deployments',
+      'Reduced human error in critical processes',
+      'Faster onboarding for new engineers'
+    ],
+    timeline: '2-6 weeks depending on complexity'
+  },
+  {
+    id: 'ai-products',
+    title: 'AI Products',
+    tagline: 'Production-grade AI powered by GPT-4, Claude, and custom models',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>`,
+    description: 'We build AI applications that actually work in production—with evaluation, monitoring, and governance.',
+    whatWeDeliver: [
+      'RAG systems for enterprise knowledge bases',
+      'Document intelligence and extraction',
+      'AI assistants and chatbots',
+      'Evaluation frameworks and testing',
+      'LLM observability and cost monitoring'
+    ],
+    idealFor: [
+      'Companies wanting to deploy AI safely',
+      'Teams processing large document volumes',
+      'Organizations needing internal knowledge search',
+      'Businesses requiring custom AI workflows'
+    ],
+    outcomes: [
+      '40+ hours/week saved on document processing',
+      '95%+ accuracy with proper evaluation',
+      'Safe deployment with guardrails',
+      'Full observability and cost control'
+    ],
+    timeline: '4-10 weeks for production deployment'
+  },
+  {
+    id: 'training',
+    title: 'Training Programs',
+    tagline: 'Upskill your team without slowing delivery',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
+    description: 'Practical, hands-on training programs built around your tech stack and real business problems.',
+    whatWeDeliver: [
+      'Custom curriculum design',
+      'Hands-on workshops with your data',
+      'Best practices and code reviews',
+      'Ongoing mentorship and support',
+      'Knowledge transfer documentation'
+    ],
+    idealFor: [
+      'Teams adopting new technologies',
+      'Companies building internal data capabilities',
+      'Organizations wanting to reduce consultant dependency',
+      'Teams needing AI/ML upskilling'
+    ],
+    outcomes: [
+      '3,000+ professionals trained',
+      'Teams self-sufficient in 8-12 weeks',
+      'Reduced dependency on external consultants',
+      'Knowledge retained in-house'
+    ],
+    timeline: '6-12 weeks for comprehensive programs'
+  }
+];
+---
+
+<Layout 
+  title="Services - Wisabi Analytics" 
+  description="End-to-end data, AI, and automation solutions. From data platforms to AI products, we deliver production-grade systems in weeks.">
+  <Navigation />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          Services
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Production-grade data, AI, and automation solutions delivered in weeks. Choose the service that fits your needs—or combine them for end-to-end transformation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Accordion -->
+  <section class="pb-24 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-6">
+        {services.map((service, index) => (
+          <details class="group border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-brand-300 transition-colors">
+            <summary class="cursor-pointer p-8 flex items-start justify-between">
+              <div class="flex items-start gap-6 flex-1">
+                <div class="flex-shrink-0 w-16 h-16 bg-brand-100 rounded-xl flex items-center justify-center text-brand-600 group-open:bg-brand-600 group-open:text-white transition-colors" set:html={service.icon} />
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">{service.title}</h2>
+                  <p class="text-gray-600">{service.tagline}</p>
+                </div>
+              </div>
+              <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            
+            <!-- Expanded Content -->
+            <div class="px-8 pb-8 pt-4 border-t border-gray-200">
+              <div class="grid md:grid-cols-2 gap-8">
+                <!-- Left Column -->
+                <div class="space-y-6">
+                  <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">What we deliver</h3>
+                    <ul class="space-y-2">
+                      {service.whatWeDeliver.map((item) => (
+                        <li class="flex items-start text-sm text-gray-600">
+                          <svg class="w-5 h-5 mr-2 text-brand-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Ideal for</h3>
+                    <ul class="space-y-2">
+                      {service.idealFor.map((item) => (
+                        <li class="flex items-start text-sm text-gray-600">
+                          <svg class="w-5 h-5 mr-2 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-6">
+                  <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Typical outcomes</h3>
+                    <ul class="space-y-2">
+                      {service.outcomes.map((item) => (
+                        <li class="flex items-start text-sm text-gray-600">
+                          <svg class="w-5 h-5 mr-2 text-brand-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div class="bg-brand-50 rounded-xl p-6 border border-brand-200">
+                    <div class="space-y-4">
+                      <div>
+                        <p class="text-xs text-brand-700 uppercase tracking-wide font-semibold mb-2">Delivery Timeline</p>
+                        <p class="text-sm font-medium text-gray-900">{service.timeline}</p>
+                      </div>
+                      
+                      <div class="pt-4 border-t border-brand-200">
+                        <p class="text-sm font-medium text-gray-900 mb-2">Flexible engagement models</p>
+                        <p class="text-xs text-gray-600">
+                          We tailor scope and pricing to your needs—whether that's a focused 2-week sprint or a multi-month transformation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button 
+                     data-cal-link="wisabianalytics/initial-consultation"
+                     data-cal-namespace="initial-consultation"
+                     data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                     class="w-full px-6 py-3 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+                    Get Custom Pricing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        Not sure which service you need?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        Book a free consultation and we'll help you identify the right approach for your goals.
+      </p>
+      <button 
+         data-cal-link="wisabianalytics/initial-consultation"
+         data-cal-namespace="initial-consultation"
+         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+         class="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+        Book a Free Consultation
+      </button>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
