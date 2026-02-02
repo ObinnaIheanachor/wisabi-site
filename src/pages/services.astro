@@ -139,7 +139,7 @@ const services = [
     <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-6">
         {services.map((service, index) => (
-          <details class="group border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-brand-300 transition-colors">
+          <details id={service.id} class="group border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-brand-300 transition-colors">
             <summary class="cursor-pointer p-8 flex items-start justify-between">
               <div class="flex items-start gap-6 flex-1">
                 <div class="flex-shrink-0 w-16 h-16 bg-brand-100 rounded-xl flex items-center justify-center text-brand-600 group-open:bg-brand-600 group-open:text-white transition-colors" set:html={service.icon} />
@@ -253,6 +253,41 @@ const services = [
       </button>
     </div>
   </section>
+
+  <!-- Auto-open accordion on anchor link -->
+  <script>
+    // Function to open accordion based on URL hash
+    function openAccordionFromHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        // Remove the # and find the element
+        const targetId = hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement && targetElement.tagName === 'DETAILS') {
+          // Open the accordion
+          targetElement.open = true;
+          
+          // Smooth scroll to the element with offset for fixed nav
+          setTimeout(() => {
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - 100;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      }
+    }
+
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', openAccordionFromHash);
+    
+    // Run when hash changes (e.g., clicking footer link on same page)
+    window.addEventListener('hashchange', openAccordionFromHash);
+  </script>
 
   <Footer />
 </Layout>

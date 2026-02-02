@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Contact - Wisabi Analytics" 
+  description="Get in touch to discuss your data, AI, or automation project. Book a call, email us, or send a message.">
+  <Navigation />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          Let's Talk
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Ready to build something measurable? Choose the best way to reach us.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Options -->
+  <section class="pb-20 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        
+        <!-- Option 1: Book a Call (Primary) -->
+        <div class="bg-brand-50 border-2 border-brand-300 rounded-2xl p-8 relative">
+          <div class="absolute -top-3 left-6 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+            RECOMMENDED
+          </div>
+          <div class="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Book a Consultation</h3>
+          <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+            30-minute call to discuss your project, goals, and how we can help. Pick a time that works for you.
+          </p>
+          <button 
+             data-cal-link="wisabianalytics/initial-consultation"
+             data-cal-namespace="initial-consultation"
+             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+             class="w-full px-6 py-3 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+            Schedule Now
+          </button>
+          <p class="text-xs text-gray-500 mt-3 text-center">
+            Usually available within 24-48 hours
+          </p>
+        </div>
+
+        <!-- Option 2: Email Us (Secondary) -->
+        <div class="border-2 border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-colors">
+          <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Email Us Directly</h3>
+          <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+            Prefer email? Send us your project details and we'll respond within 24 hours.
+          </p>
+          <a 
+             href="mailto:hello@wisabi.io"
+             class="block w-full px-6 py-3 bg-white border-2 border-gray-900 text-gray-900 rounded-xl font-semibold hover:bg-gray-50 transition-colors text-center">
+            hello@wisabi.io
+          </a>
+          <p class="text-xs text-gray-500 mt-3 text-center">
+            Response time: &lt;24 hours
+          </p>
+        </div>
+
+        <!-- Option 3: Quick Form (Tertiary) -->
+        <div class="border-2 border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-colors">
+          <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Send a Message</h3>
+          <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+            Just want to drop us a quick note? Use our contact form below.
+          </p>
+          <a 
+             href="#contact-form"
+             class="block w-full px-6 py-3 bg-white border-2 border-gray-900 text-gray-900 rounded-xl font-semibold hover:bg-gray-50 transition-colors text-center">
+            Fill Form
+          </a>
+          <p class="text-xs text-gray-500 mt-3 text-center">
+            We'll get back to you soon
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div id="contact-form" class="max-w-2xl mx-auto">
+        <div class="bg-gray-50 rounded-2xl p-8 md:p-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Quick Contact Form</h2>
+          <p class="text-gray-600 mb-8">Fill out this form and we'll be in touch within 24 hours.</p>
+          
+          <form action="https://formspree.io/f/xgoykvvl" method="POST" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-900 mb-2">Name *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                  placeholder="you@company.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="company" class="block text-sm font-semibold text-gray-900 mb-2">Company</label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                placeholder="Your company"
+              />
+            </div>
+
+            <div>
+              <label for="service" class="block text-sm font-semibold text-gray-900 mb-2">Interested in</label>
+              <select 
+                id="service" 
+                name="service"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors">
+                <option value="">Select a service</option>
+                <option value="data-platform">Data Platform</option>
+                <option value="automation">Automation & Dev Tools</option>
+                <option value="ai-products">AI Products</option>
+                <option value="training">Training</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                placeholder="Tell us about your project, goals, timeline, etc."></textarea>
+            </div>
+
+            <button 
+              type="submit"
+              class="w-full px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-1">Location</h3>
+          <p class="text-gray-600 text-sm">Leeds, UK</p>
+          <p class="text-gray-500 text-xs mt-1">Remote-friendly</p>
+        </div>
+
+        <div>
+          <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-1">Response Time</h3>
+          <p class="text-gray-600 text-sm">&lt;24 hours</p>
+          <p class="text-gray-500 text-xs mt-1">During business days</p>
+        </div>
+
+        <div>
+          <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-1">NDA Friendly</h3>
+          <p class="text-gray-600 text-sm">Happy to sign</p>
+          <p class="text-gray-500 text-xs mt-1">Before discussing details</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

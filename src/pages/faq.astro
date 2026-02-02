@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const faqs = [
+  {
+    category: 'General',
+    questions: [
+      {
+        q: 'What makes Wisabi different from other consultancies?',
+        a: 'We focus on speed and outcomes. Most consultancies bill by the hour and drag projects out. We deliver production-ready systems in weeks, train your team to run them, and measure success by what changes in your business, not lines of code.'
+      },
+      {
+        q: 'Do you work with startups or just enterprises?',
+        a: 'Both. We\'ve worked with Fortune 500 companies and early-stage startups. What matters is that you\'re serious about using data and AI to drive business outcomes.'
+      },
+      {
+        q: 'Are you remote-friendly?',
+        a: 'Yes. We\'re based in Leeds, UK, but work remotely with clients across Europe and beyond. We use Slack, Zoom, and async documentation to stay aligned.'
+      }
+    ]
+  },
+  {
+    category: 'Services & Pricing',
+    questions: [
+      {
+        q: 'How much do your services cost?',
+        a: 'It depends on scope. Projects range from quick 1-2 week audits to multi-month platform builds. We tailor pricing to your needs and budget. Book a consultation for a custom quote.'
+      },
+      {
+        q: 'Do you offer ongoing support after delivery?',
+        a: 'Yes. We offer flexible support packages; from ad-hoc consulting to retainer arrangements. Many clients start with a project, then keep us on retainer for ongoing optimization and new features.'
+      },
+      {
+        q: 'Can we start small and scale up?',
+        a: 'Absolutely. Many clients start with a 1-2 week discovery or POC, then expand to full platform builds once they see results.'
+      }
+    ]
+  },
+  {
+    category: 'Process & Timeline',
+    questions: [
+      {
+        q: 'How fast can you start?',
+        a: 'Usually within 1-2 weeks of signing a contract. We keep a flexible pipeline so we can move quickly for the right projects.'
+      },
+      {
+        q: 'What\'s your typical project timeline?',
+        a: 'It varies by service. Data platforms: 4-12 weeks. Automation: 2-6 weeks. AI products: 4-10 weeks. Training: 6-12 weeks. We prioritize shipping working systems fast.'
+      },
+      {
+        q: 'How involved do we need to be?',
+        a: 'We need access to stakeholders for weekly demos and decision-making. Beyond that, you can be as hands-on or hands-off as you prefer.'
+      }
+    ]
+  },
+  {
+    category: 'Technology',
+    questions: [
+      {
+        q: 'What tech stack do you use?',
+        a: 'We specialize in modern, cloud-native tools: Snowflake, BigQuery, dbt, Airflow, Dagster, AWS, GCP, GPT-4, Claude, and more. We choose based on your needs, not vendor relationships.'
+      },
+      {
+        q: 'Can you work with our existing tools?',
+        a: 'Yes. We integrate with whatever you\'re already using. If a migration makes sense, we\'ll recommend it—but we don\'t force change for change\'s sake.'
+      },
+      {
+        q: 'Do you provide training on the tools you build?',
+        a: 'Always. Every project includes documentation and knowledge transfer. We also offer dedicated training programs if your team needs deeper upskilling.'
+      }
+    ]
+  }
+];
+---
+
+<Layout 
+  title="FAQ - Wisabi Analytics" 
+  description="Frequently asked questions about Wisabi Analytics services, pricing, process, and technology.">
+  <Navigation />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          Frequently Asked Questions
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Everything you need to know about working with Wisabi Analytics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {faqs.map((category, categoryIndex) => (
+        <div class={categoryIndex > 0 ? 'mt-16' : ''}>
+          <!-- Category Header -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">
+              {category.category}
+            </h2>
+            <div class="h-0.5 bg-gradient-to-r from-brand-600 via-brand-400 to-brand-200 rounded-full"></div>
+          </div>
+
+          <!-- Questions -->
+          <div class="space-y-3">
+            {category.questions.map((faq, index) => (
+              <details class="group bg-gray-50 rounded-xl border border-gray-200 hover:border-brand-300 hover:bg-white transition-all duration-200">
+                <summary class="cursor-pointer list-none flex items-start justify-between gap-4 p-6">
+                  <h3 class="text-lg font-semibold text-gray-900 group-open:text-brand-600 transition-colors pr-4">
+                    {faq.q}
+                  </h3>
+                  <svg class="w-5 h-5 text-gray-400 group-open:text-brand-600 group-open:rotate-180 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-6 pb-6 pt-2">
+                  <p class="text-gray-600 leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Separator before CTA -->
+      <div class="border-t border-gray-200 mt-16 pt-12">
+        <!-- Still have questions? -->
+        <div class="text-center py-12 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl border border-brand-200">
+          <div class="max-w-2xl mx-auto px-6">
+            <div class="w-16 h-16 bg-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Still have questions?</h3>
+            <p class="text-gray-600 mb-8">
+              Book a free consultation and we'll answer everything. No obligation, just a friendly conversation.
+            </p>
+            <button 
+               data-cal-link="wisabianalytics/initial-consultation"
+               data-cal-namespace="initial-consultation"
+               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+               class="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-colors">
+              Book a Free Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

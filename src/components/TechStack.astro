@@ -1,60 +1,212 @@
 ---
-// Reframed as "what you get" not "what we use"
-const capabilities = [
-  { 
-    category: 'Data Platform Delivery',
-    description: 'Warehouse, orchestration, transformation',
-    tools: ['Snowflake', 'dbt', 'Databricks', 'Airflow']
-  },
-  { 
-    category: 'AI & ML Delivery',
-    description: 'RAG, evals, observability, governance',
-    tools: ['OpenAI GPT', 'Claude', 'LangChain', 'Custom Models']
-  },
-  { 
-    category: 'Cloud & Security',
-    description: 'IAM, CI/CD, monitoring, compliance',
-    tools: ['AWS', 'Azure', 'GCP', 'Terraform', 'Datadog']
-  }
-];
+// Tech stack with expand/collapse
 ---
 
 <section class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
-    <div class="mb-16">
-      <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Technology Stack</p>
+  <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-        Enterprise-Grade Delivery
+        Modern Stack, Proven Patterns
       </h2>
-      <p class="text-lg text-gray-600 max-w-2xl">
-        Production-ready infrastructure, not proof-of-concepts
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        We work with best-in-class tools—selected for reliability, cost control, and maintainability.
       </p>
     </div>
 
-    <!-- Capability Cards (collapsed by default) -->
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      {capabilities.map((cap) => (
-        <div class="bg-[#faf9f6] rounded-xl p-8 border border-gray-200">
-          <h3 class="text-lg font-bold text-gray-900 mb-2">{cap.category}</h3>
-          <p class="text-sm text-gray-600 mb-6">{cap.description}</p>
-          
-          <div class="flex flex-wrap gap-2">
-            {cap.tools.map((tool) => (
-              <span class="px-3 py-1 bg-white text-gray-700 text-xs font-medium rounded-lg border border-gray-200">
-                {tool}
-              </span>
-            ))}
-          </div>
+    <!-- Tech Categories -->
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <!-- Data Platform -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+          </svg>
         </div>
-      ))}
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Data Platform</h3>
+        <p class="text-sm text-gray-600 mb-4">Warehouse, orchestration, transformation</p>
+        <div class="text-sm text-gray-700 space-y-1">
+          <p>• Snowflake, BigQuery, Databricks</p>
+          <p>• dbt, Airflow, Dagster, Prefect</p>
+          <p>• Great Expectations, dbt tests</p>
+        </div>
+      </div>
+
+      <!-- AI & ML -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">AI & ML</h3>
+        <p class="text-sm text-gray-600 mb-4">RAG, evaluation, observability</p>
+        <div class="text-sm text-gray-700 space-y-1">
+          <p>• OpenAI GPT models, Anthropic Claude</p>
+          <p>• LangChain, LlamaIndex</p>
+          <p>• Vector databases (Pinecone, Qdrant)</p>
+        </div>
+      </div>
+
+      <!-- Cloud & Infrastructure -->
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Cloud & DevOps</h3>
+        <p class="text-sm text-gray-600 mb-4">Infrastructure, CI/CD, monitoring</p>
+        <div class="text-sm text-gray-700 space-y-1">
+          <p>• AWS, GCP, Azure</p>
+          <p>• Terraform, Docker, Kubernetes</p>
+          <p>• GitHub Actions, GitLab CI</p>
+        </div>
+      </div>
     </div>
 
-    <!-- View full stack toggle -->
-    <div class="text-center">
-      <button class="text-gray-600 hover:text-gray-900 text-sm font-semibold transition-colors">
-        View full tech stack →
-      </button>
-    </div>
+    <!-- Expandable full list -->
+    <details class="border-2 border-gray-200 rounded-2xl overflow-hidden">
+      <summary class="cursor-pointer p-6 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors">
+        <span class="text-lg font-semibold text-gray-900">View complete tech stack</span>
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </summary>
+      
+      <div class="p-8 bg-white">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Data Warehouses -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Data Warehouses</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Snowflake</li>
+              <li>• Google BigQuery</li>
+              <li>• Databricks</li>
+              <li>• Amazon Redshift</li>
+            </ul>
+          </div>
+
+          <!-- Transformation -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Transformation</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• dbt (Data Build Tool)</li>
+              <li>• SQL</li>
+              <li>• Python (pandas, polars)</li>
+              <li>• Apache Spark</li>
+            </ul>
+          </div>
+
+          <!-- Orchestration -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Orchestration</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Apache Airflow</li>
+              <li>• Dagster</li>
+              <li>• Prefect</li>
+              <li>• AWS Step Functions</li>
+            </ul>
+          </div>
+
+          <!-- Data Quality -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Data Quality</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Great Expectations</li>
+              <li>• dbt tests</li>
+              <li>• Monte Carlo</li>
+              <li>• Soda</li>
+            </ul>
+          </div>
+
+          <!-- AI/ML -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">AI/ML Platforms</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• OpenAI GPT</li>
+              <li>• Anthropic Claude</li>
+              <li>• LangChain</li>
+              <li>• LlamaIndex</li>
+            </ul>
+          </div>
+
+          <!-- Vector DBs -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Vector Databases</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Pinecone</li>
+              <li>• Qdrant</li>
+              <li>• Weaviate</li>
+              <li>• pgvector</li>
+            </ul>
+          </div>
+
+          <!-- Cloud Providers -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Cloud Providers</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• AWS (Lambda, S3, EC2, RDS)</li>
+              <li>• Google Cloud Platform</li>
+              <li>• Microsoft Azure</li>
+            </ul>
+          </div>
+
+          <!-- Infrastructure -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Infrastructure</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Terraform</li>
+              <li>• Docker</li>
+              <li>• Kubernetes</li>
+              <li>• AWS CDK</li>
+            </ul>
+          </div>
+
+          <!-- CI/CD -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">CI/CD</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• GitHub Actions</li>
+              <li>• GitLab CI</li>
+              <li>• CircleCI</li>
+              <li>• Jenkins</li>
+            </ul>
+          </div>
+
+          <!-- Monitoring -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Monitoring</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Datadog</li>
+              <li>• New Relic</li>
+              <li>• Grafana</li>
+              <li>• CloudWatch</li>
+            </ul>
+          </div>
+
+          <!-- BI Tools -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">BI & Visualization</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Tableau</li>
+              <li>• Power BI</li>
+              <li>• Looker</li>
+              <li>• Metabase</li>
+            </ul>
+          </div>
+
+          <!-- Languages -->
+          <div>
+            <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">Programming</h4>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Python</li>
+              <li>• SQL</li>
+              <li>• TypeScript/JavaScript</li>
+              <li>• Go</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
