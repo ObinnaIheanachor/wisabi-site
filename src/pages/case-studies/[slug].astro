@@ -12,7 +12,7 @@ export function getStaticPaths() {
     industry: 'Legal & Insolvency',
     tag: 'AI Systems',
     tagColor: 'bg-brand-100 text-brand-700',
-    summary: 'A live RAG platform that answers questions on UK corporate insolvency with every claim traced back to its source.',
+    summary: 'A live RAG platform that answers questions on UK corporate insolvency with every claim traced back to its source. Citation cards link directly to The Gazette and Companies House filings.',
     cta: { label: 'View the live platform', href: 'https://chat.corveris.app/' },
     secondaryCtas: [],
     cover: '/case-studies/corveris-cover.png',
@@ -28,15 +28,11 @@ export function getStaticPaths() {
       },
       {
         heading: 'What we built',
-        body: 'A production platform with a Chainlit front end, a PostgreSQL store, and a retrieval layer over The Gazette and Companies House data. Citation cards surface the exact source behind each claim. The product is live and public at chat.corveris.app.'
+        body: 'A live product that turns fragmented public insolvency records into answers a practitioner can act on. Every response cites the exact filing behind each claim, so it can be checked and defended, not just trusted. It runs on UK infrastructure and is public at chat.corveris.app.'
       },
       {
         heading: 'Outcome',
         body: 'A working, shareable product that turns fragmented public insolvency records into cited, checkable answers. Try it directly rather than taking our word for it.'
-      },
-      {
-        heading: 'Stack',
-        body: 'Chainlit, PostgreSQL, Claude Sonnet, Caddy, self-hosted on a UK VPS. The Gazette and Companies House data sources.'
       }
     ]
   },
@@ -46,7 +42,7 @@ export function getStaticPaths() {
     industry: 'Engineering & Manufacturing',
     tag: 'AI Systems',
     tagColor: 'bg-brand-100 text-brand-700',
-    summary: 'A hybrid PyMuPDF and GPT-4 Vision pipeline that pulls revision data from 4,700+ engineering drawings, replacing weeks of manual work.',
+    summary: 'A hybrid extraction pipeline that pulls revision data from 4,700+ engineering drawings, replacing weeks of manual work.',
     cta: { label: 'Read the InfoQ article', href: 'https://www.infoq.com/articles/local-first-ai-inference-cloud/' },
     secondaryCtas: [],
     cover: '/case-studies/extraction-cover.png',
@@ -58,19 +54,15 @@ export function getStaticPaths() {
       },
       {
         heading: 'Approach',
-        body: 'A three-tier hybrid pipeline that sends each page to the cheapest method that can handle it. Tier one uses PyMuPDF for direct text extraction and clears most of the corpus. Tier two routes harder pages to GPT-4 Vision. Tier three flags a small remainder for human review. A confidence score decides the routing, so cost stays low without losing accuracy.'
+        body: 'A three-tier hybrid pipeline that sends each page to the cheapest method that can handle it. Most pages clear with fast automated extraction. Harder pages route to an AI vision model. A small remainder is flagged for human review. A confidence score decides the routing, so cost stays low without losing accuracy.'
       },
       {
         heading: 'What we built',
-        body: 'A production extraction system for 4,700+ engineering drawings, with confidence-based routing, rotation and template handling, and per-site validation.'
+        body: 'A production system that reads revision data from 4,700+ engineering drawings without manual data entry. Confidence-based routing and per-site validation keep the output trustworthy, and anything the system is unsure about goes to a person rather than being guessed.'
       },
       {
         heading: 'Outcome',
         body: 'A full pass dropped from about four weeks to 45 minutes, at a cost of around £40 against the previous £8,000. The architecture pattern behind it was published on InfoQ and Towards Data Science.'
-      },
-      {
-        heading: 'Stack',
-        body: 'Python, PyMuPDF, Azure OpenAI (GPT-4 Vision), confidence scoring, human-in-the-loop review.'
       }
     ]
   },
@@ -80,7 +72,7 @@ export function getStaticPaths() {
     industry: 'Public Sector & Civic Data',
     tag: 'Data & Analytics',
     tagColor: 'bg-violet-100 text-violet-700',
-    summary: 'Interactive Tableau dashboards modelling six scenarios across 64 English councils, published alongside Towards Data Science articles.',
+    summary: 'Interactive dashboards modelling six scenarios across 64 English councils, published alongside Towards Data Science articles.',
     cta: { label: 'Open the dashboards', href: 'https://public.tableau.com/app/profile/obinna.iheanachor/viz/SixScenariosOneUncertaintyStoryEnglishCouncils2026/D1_Navigator' },
     secondaryCtas: [
       { label: 'Churn Without Fragmentation dashboard', href: 'https://public.tableau.com/app/profile/obinna.iheanachor/viz/ChurnWithoutFragmentationEnglishCouncils2018-2022/D0_Navigator' }
@@ -97,15 +89,11 @@ export function getStaticPaths() {
       },
       {
         heading: 'What we built',
-        body: 'Two interactive Tableau Public dashboards with a multi-panel navigator, published alongside companion articles on Towards Data Science. The model is locked and the source files are hashed for reproducibility.'
+        body: 'Two interactive dashboards with a multi-panel navigator, published alongside companion articles on Towards Data Science and built on official ONS and government election data. The model is locked and the source files are hashed, so anyone can reproduce the results.'
       },
       {
         heading: 'Outcome',
         body: 'A public, reproducible piece of civic data analysis released ahead of the May 2026 UK local elections. Explore the live dashboards above.'
-      },
-      {
-        heading: 'Stack',
-        body: 'Tableau Public, Python data pipeline, ONS ward to LAD lookups, Commons Library and DLUHC sources.'
       }
     ]
   }
