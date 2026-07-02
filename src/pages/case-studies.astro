@@ -2,78 +2,104 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import civicLensDemo from '../assets/part2.mp4';
 
-// Placeholder case studies - replace with real content
+// Real, verifiable case studies. Every claim traces to a live product,
+// a published article, or a public dashboard.
 const caseStudies = [
   {
-    slug: 'manufacturing-data-platform',
-    title: 'Modern Data Platform for UK Manufacturing Leader',
-    client: 'Global Manufacturing Company',
-    industry: 'Manufacturing',
-    tag: 'Data Platform',
+    slug: 'corveris-insolvency-rag',
+    title: 'Corveris: RAG Intelligence for UK Corporate Insolvency',
+    client: 'Corveris',
+    industry: 'Legal & Insolvency',
+    tag: 'AI Systems',
     tagColor: 'bg-brand-100 text-brand-700',
-    excerpt: 'Replaced legacy ETL with modern dbt + Snowflake architecture, reducing reporting time by 70%.',
+    excerpt: 'A live RAG platform that answers questions on UK corporate insolvency with every claim traced back to its source.',
     metrics: [
-      { label: 'Reporting time', value: '70% faster' },
-      { label: 'Data quality', value: '95%+ tested' },
-      { label: 'Delivery', value: '8 weeks' }
+      { label: 'Data sources', value: 'Gazette + Companies House' },
+      { label: 'Answers', value: 'Cited to source' },
+      { label: 'Deployment', value: 'UK self-hosted' }
     ],
-    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=500&fit=crop',
-    published: '2024-01-15'
+    liveUrl: 'https://chat.corveris.app/',
+    image: '/case-studies/corveris-cover.png',
+    imageFit: 'cover',
+    gradient: 'from-brand-600 to-brand-800',
+    published: '2026-06-01'
   },
   {
-    slug: 'document-ai-fintech',
-    title: 'AI-Powered Document Processing for Fintech Scale-up',
-    client: 'Financial Services Platform',
-    industry: 'Fintech',
-    tag: 'AI Products',
+    slug: 'engineering-drawing-extraction',
+    title: 'From 4 Weeks to 45 Minutes: Document Extraction at Scale',
+    client: 'A UK engineering company',
+    industry: 'Engineering & Manufacturing',
+    tag: 'AI Systems',
+    tagColor: 'bg-brand-100 text-brand-700',
+    excerpt: 'A hybrid PyMuPDF and GPT-4 Vision pipeline that pulls revision data from 4,700+ engineering drawings, replacing weeks of manual work.',
+    metrics: [
+      { label: 'Volume', value: '4,700+ PDFs' },
+      { label: 'Runtime', value: '45 minutes' },
+      { label: 'Cost', value: '~£40 vs £8,000' }
+    ],
+    articleUrl: 'https://www.infoq.com/articles/local-first-ai-inference-cloud/',
+    image: '/case-studies/extraction-cover.png',
+    imageFit: 'contain',
+    gradient: 'from-brand-700 to-brand-900',
+    published: '2026-05-01'
+  },
+  {
+    slug: 'civic-lens-elections',
+    title: 'Civic Lens: Modelling Uncertainty in UK Local Elections',
+    client: 'Civic Lens (Wisabi)',
+    industry: 'Public Sector & Civic Data',
+    tag: 'Data & Analytics',
     tagColor: 'bg-violet-100 text-violet-700',
-    excerpt: 'Built RAG-powered document extraction system saving 40 hours/week in manual processing.',
+    excerpt: 'Interactive Tableau dashboards modelling six scenarios across 64 English councils, published alongside Towards Data Science articles.',
     metrics: [
-      { label: 'Time saved', value: '40 hrs/week' },
-      { label: 'Accuracy', value: '98%' },
-      { label: 'Cost reduction', value: '£120k/year' }
+      { label: 'Authorities', value: '64 councils' },
+      { label: 'Scenarios', value: 'Six (S0 to S5)' },
+      { label: 'Published', value: 'Tableau + TDS' }
     ],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-    published: '2024-01-10'
-  },
-  {
-    slug: 'automation-fmcg',
-    title: 'Supply Chain Automation for Global FMCG Brand',
-    client: 'Fortune 500 FMCG Company',
-    industry: 'FMCG',
-    tag: 'Automation',
-    tagColor: 'bg-amber-100 text-amber-700',
-    excerpt: 'Automated reporting workflows and eliminated 30+ hours of manual work per week.',
-    metrics: [
-      { label: 'Manual work', value: '30 hrs saved' },
-      { label: 'Error rate', value: '99% reduced' },
-      { label: 'ROI', value: '4 months' }
-    ],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=500&fit=crop',
-    published: '2023-12-20'
+    liveUrl: 'https://public.tableau.com/app/profile/obinna.iheanachor/viz/SixScenariosOneUncertaintyStoryEnglishCouncils2026/D1_Navigator',
+    videoSrc: civicLensDemo,
+    poster: '/case-studies/civic-lens-demo-poster.jpg',
+    gradient: 'from-violet-500 to-violet-700',
+    published: '2026-05-05'
   }
 ];
 
-const industries = ['All', 'Manufacturing', 'Fintech', 'FMCG'];
-const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
+const industries = ['All', 'Legal & Insolvency', 'Engineering & Manufacturing', 'Public Sector & Civic Data'];
+const tags = ['All', 'AI Systems', 'Data & Analytics'];
+
+const capabilities = ['AI Systems and RAG', 'Data and Analytics', 'App Development (iOS and Android)'];
 ---
 
-<Layout 
-  title="Case Studies - Wisabi Analytics" 
-  description="Real results from real projects. See how we've helped companies transform their data and AI capabilities.">
+<Layout
+  title="Case Studies - Wisabi Analytics"
+  description="Production AI, data, and app products that companies rely on. Every project is live, published, or public.">
   <Navigation />
-  
+
   <!-- Hero -->
-  <section class="pt-32 pb-16 bg-white">
+  <section class="pt-32 pb-10 bg-white">
     <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
           Case Studies
         </h1>
         <p class="text-xl text-gray-600 leading-relaxed">
-          Real outcomes from real projects. See how we've helped companies across manufacturing, fintech, and FMCG transform their data and AI capabilities.
+          Production systems, not demos. We build AI and data products that companies rely on, and we ship them end to end, from architecture through to the App Store and Google Play. Every project below is live, published, or public.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities strip -->
+  <section class="pb-12 bg-white">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-3">
+        {capabilities.map((capability) => (
+          <span class="px-4 py-2 rounded-lg text-sm font-medium bg-brand-50 text-brand-700 border border-brand-100">
+            {capability}
+          </span>
+        ))}
       </div>
     </div>
   </section>
@@ -86,7 +112,10 @@ const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
           <p class="text-sm font-semibold text-gray-500 mb-2">Industry</p>
           <div class="flex flex-wrap gap-2">
             {industries.map((industry) => (
-              <button class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${industry === 'All' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+              <button
+                data-filter-type="industry"
+                data-filter-value={industry}
+                class={`filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors ${industry === 'All' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                 {industry}
               </button>
             ))}
@@ -96,7 +125,10 @@ const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
           <p class="text-sm font-semibold text-gray-500 mb-2">Service</p>
           <div class="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <button class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tag === 'All' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+              <button
+                data-filter-type="tag"
+                data-filter-value={tag}
+                class={`filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tag === 'All' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
                 {tag}
               </button>
             ))}
@@ -109,17 +141,30 @@ const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
   <!-- Case Studies Grid -->
   <section class="py-20 bg-white">
     <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div id="case-study-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {caseStudies.map((study) => (
-          <article class="group">
+          <article class="case-study-card group" data-industry={study.industry} data-tag={study.tag}>
             <a href={`/case-studies/${study.slug}`} class="block">
-              <!-- Image -->
+              <!-- Media -->
               <div class="relative overflow-hidden rounded-xl mb-4 aspect-[16/10] bg-gray-100">
-                <img 
-                  src={study.image} 
-                  alt={study.title}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                {study.videoSrc ? (
+                  <video
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    autoplay muted loop playsinline preload="metadata"
+                    poster={study.poster}>
+                    <source src={study.videoSrc} type="video/mp4" />
+                  </video>
+                ) : study.image ? (
+                  <img
+                    src={study.image}
+                    alt={study.title}
+                    class={`w-full h-full group-hover:scale-105 transition-transform duration-500 ${study.imageFit === 'contain' ? 'object-contain p-4 bg-white' : 'object-cover'}`}
+                  />
+                ) : (
+                  <div class={`w-full h-full flex items-center justify-center bg-linear-to-br ${study.gradient} group-hover:scale-105 transition-transform duration-500`}>
+                    <span class="text-white text-lg font-bold tracking-tight px-6 text-center">{study.client}</span>
+                  </div>
+                )}
                 <div class="absolute top-4 left-4">
                   <span class={`px-3 py-1 rounded-lg text-xs font-semibold ${study.tagColor}`}>
                     {study.tag}
@@ -156,7 +201,7 @@ const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
       <div class="mt-16 text-center py-12 border-2 border-dashed border-gray-300 rounded-2xl">
         <p class="text-gray-600 mb-4">More case studies coming soon</p>
         <p class="text-sm text-gray-500">
-          Interested in becoming a case study? <button 
+          Interested in becoming a case study? <button
              data-cal-link="wisabianalytics/initial-consultation"
              data-cal-namespace="initial-consultation"
              class="text-brand-600 font-semibold hover:underline">Let's talk</button>
@@ -165,5 +210,83 @@ const tags = ['All', 'Data Platform', 'AI Products', 'Automation'];
     </div>
   </section>
 
+  <!-- App development positioning -->
+  <section class="py-20 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-block px-3 py-1 rounded-lg text-xs font-semibold bg-amber-100 text-amber-700 mb-4">
+          App Development
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+          App development, iOS and Android
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          App delivery is a newer service line for us, built on the same foundation as the systems above: production engineering, real deployment, and clean handover. We build cross-platform with React Native or Flutter, so one codebase ships to both stores. We handle the full publishing path, TestFlight and Play Console testing, store review and rejection handling, and post-launch support. If you need an app taken from brief to live on the App Store and Google Play, we scope it properly first, then build.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <p class="text-sm font-bold text-gray-900 mb-1">Cross-platform build</p>
+          <p class="text-sm text-gray-600">React Native or Flutter</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <p class="text-sm font-bold text-gray-900 mb-1">Full store publishing</p>
+          <p class="text-sm text-gray-600">App Store and Google Play</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <p class="text-sm font-bold text-gray-900 mb-1">Testing and support</p>
+          <p class="text-sm text-gray-600">Review handling and post-launch support</p>
+        </div>
+      </div>
+
+      <button
+         data-cal-link="wisabianalytics/initial-consultation"
+         data-cal-namespace="initial-consultation"
+         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+         class="px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all">
+        Book a scoping call
+      </button>
+    </div>
+  </section>
+
   <Footer />
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.case-study-card');
+  const active = { industry: 'All', tag: 'All' };
+
+  const activeClasses = ['bg-gray-900', 'text-white'];
+  const idleClasses = ['bg-gray-100', 'text-gray-700', 'hover:bg-gray-200'];
+
+  function applyFilters() {
+    cards.forEach((card) => {
+      const matchIndustry = active.industry === 'All' || card.dataset.industry === active.industry;
+      const matchTag = active.tag === 'All' || card.dataset.tag === active.tag;
+      card.style.display = matchIndustry && matchTag ? '' : 'none';
+    });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.filterType as 'industry' | 'tag';
+      const value = btn.dataset.filterValue as string;
+      active[type] = value;
+
+      buttons.forEach((other) => {
+        if (other.dataset.filterType !== type) return;
+        if (other === btn) {
+          other.classList.add(...activeClasses);
+          other.classList.remove(...idleClasses);
+        } else {
+          other.classList.remove(...activeClasses);
+          other.classList.add(...idleClasses);
+        }
+      });
+
+      applyFilters();
+    });
+  });
+</script>

@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import civicLensDemo from '../../assets/part2.mp4';
+
+export function getStaticPaths() {
+  const studies = [
+  {
+    slug: 'corveris-insolvency-rag',
+    title: 'Corveris: RAG Intelligence for UK Corporate Insolvency',
+    industry: 'Legal & Insolvency',
+    tag: 'AI Systems',
+    tagColor: 'bg-brand-100 text-brand-700',
+    summary: 'A live RAG platform that answers questions on UK corporate insolvency with every claim traced back to its source.',
+    cta: { label: 'View the live platform', href: 'https://chat.corveris.app/' },
+    secondaryCtas: [],
+    cover: '/case-studies/corveris-cover.png',
+    coverFit: 'cover',
+    sections: [
+      {
+        heading: 'Problem',
+        body: 'UK corporate insolvency data is scattered across The Gazette and Companies House, and it changes constantly. Practitioners need fast answers they can trust and defend, not a chatbot that guesses.'
+      },
+      {
+        heading: 'Approach',
+        body: 'A retrieval-augmented pipeline built citation-first. The model only answers from retrieved source material, and every answer links back to the record it came from. Progress is shown to the user as retrieval and reasoning happen, so the system stays legible rather than feeling like a black box.'
+      },
+      {
+        heading: 'What we built',
+        body: 'A production platform with a Chainlit front end, a PostgreSQL store, and a retrieval layer over The Gazette and Companies House data. Citation cards surface the exact source behind each claim. The product is live and public at chat.corveris.app.'
+      },
+      {
+        heading: 'Outcome',
+        body: 'A working, shareable product that turns fragmented public insolvency records into cited, checkable answers. Try it directly rather than taking our word for it.'
+      },
+      {
+        heading: 'Stack',
+        body: 'Chainlit, PostgreSQL, Claude Sonnet, Caddy, self-hosted on a UK VPS. The Gazette and Companies House data sources.'
+      }
+    ]
+  },
+  {
+    slug: 'engineering-drawing-extraction',
+    title: 'From 4 Weeks to 45 Minutes: Document Extraction at Scale',
+    industry: 'Engineering & Manufacturing',
+    tag: 'AI Systems',
+    tagColor: 'bg-brand-100 text-brand-700',
+    summary: 'A hybrid PyMuPDF and GPT-4 Vision pipeline that pulls revision data from 4,700+ engineering drawings, replacing weeks of manual work.',
+    cta: { label: 'Read the InfoQ article', href: 'https://www.infoq.com/articles/local-first-ai-inference-cloud/' },
+    secondaryCtas: [],
+    cover: '/case-studies/extraction-cover.png',
+    coverFit: 'contain',
+    sections: [
+      {
+        heading: 'Problem',
+        body: 'Pulling revision data out of thousands of engineering drawings was manual, slow, and expensive. A single pass across the corpus took around four weeks and cost roughly £8,000 in engineering effort.'
+      },
+      {
+        heading: 'Approach',
+        body: 'A three-tier hybrid pipeline that sends each page to the cheapest method that can handle it. Tier one uses PyMuPDF for direct text extraction and clears most of the corpus. Tier two routes harder pages to GPT-4 Vision. Tier three flags a small remainder for human review. A confidence score decides the routing, so cost stays low without losing accuracy.'
+      },
+      {
+        heading: 'What we built',
+        body: 'A production extraction system for 4,700+ engineering drawings, with confidence-based routing, rotation and template handling, and per-site validation.'
+      },
+      {
+        heading: 'Outcome',
+        body: 'A full pass dropped from about four weeks to 45 minutes, at a cost of around £40 against the previous £8,000. The architecture pattern behind it was published on InfoQ and Towards Data Science.'
+      },
+      {
+        heading: 'Stack',
+        body: 'Python, PyMuPDF, Azure OpenAI (GPT-4 Vision), confidence scoring, human-in-the-loop review.'
+      }
+    ]
+  },
+  {
+    slug: 'civic-lens-elections',
+    title: 'Civic Lens: Modelling Uncertainty in UK Local Elections',
+    industry: 'Public Sector & Civic Data',
+    tag: 'Data & Analytics',
+    tagColor: 'bg-violet-100 text-violet-700',
+    summary: 'Interactive Tableau dashboards modelling six scenarios across 64 English councils, published alongside Towards Data Science articles.',
+    cta: { label: 'Open the dashboards', href: 'https://public.tableau.com/app/profile/obinna.iheanachor/viz/SixScenariosOneUncertaintyStoryEnglishCouncils2026/D1_Navigator' },
+    secondaryCtas: [
+      { label: 'Churn Without Fragmentation dashboard', href: 'https://public.tableau.com/app/profile/obinna.iheanachor/viz/ChurnWithoutFragmentationEnglishCouncils2018-2022/D0_Navigator' }
+    ],
+    video: true,
+    sections: [
+      {
+        heading: 'Problem',
+        body: 'Election coverage tends to report point predictions with false confidence. The interesting question is not who wins, it is how much of the outcome is driven by assumptions rather than signal.'
+      },
+      {
+        heading: 'Approach',
+        body: 'We modelled six scenarios (S0 to S5) across 64 active English authorities and showed the calibrated uncertainty band around each stated assumption, rather than a single forecast. The honest finding: even the strongest shock we modelled moves the result by only about 13 percent of the median uncertainty band.'
+      },
+      {
+        heading: 'What we built',
+        body: 'Two interactive Tableau Public dashboards with a multi-panel navigator, published alongside companion articles on Towards Data Science. The model is locked and the source files are hashed for reproducibility.'
+      },
+      {
+        heading: 'Outcome',
+        body: 'A public, reproducible piece of civic data analysis released ahead of the May 2026 UK local elections. Explore the live dashboards above.'
+      },
+      {
+        heading: 'Stack',
+        body: 'Tableau Public, Python data pipeline, ONS ward to LAD lookups, Commons Library and DLUHC sources.'
+      }
+    ]
+  }
+  ];
+
+  return studies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study }
+  }));
+}
+
+const { study } = Astro.props;
+---
+
+<Layout
+  title={`${study.title} - Wisabi Analytics`}
+  description={study.summary}>
+  <Navigation />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-12 bg-white">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/case-studies" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors mb-8">
+        &larr; Back to case studies
+      </a>
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class={`px-3 py-1 rounded-lg text-xs font-semibold ${study.tagColor}`}>
+          {study.tag}
+        </span>
+        <span class="text-sm text-gray-500">{study.industry}</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+        {study.title}
+      </h1>
+      <p class="text-xl text-gray-600 leading-relaxed mb-8">
+        {study.summary}
+      </p>
+
+      <!-- Primary + secondary CTAs -->
+      <div class="flex flex-wrap items-center gap-4">
+        <a
+          href={study.cta.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all">
+          {study.cta.label}
+        </a>
+        {study.secondaryCtas?.map((secondary) => (
+          <a
+            href={secondary.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-all">
+            {secondary.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional media: demo video (Civic Lens) or cover image -->
+  {(study.video || study.cover) && (
+    <section class="pb-12 bg-white">
+      <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-xl aspect-[16/10] bg-gray-100 border border-gray-200">
+          {study.video ? (
+            <video
+              class="w-full h-full object-cover"
+              autoplay muted loop playsinline preload="metadata"
+              poster="/case-studies/civic-lens-demo-poster.jpg">
+              <source src={civicLensDemo} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src={study.cover}
+              alt={study.title}
+              class={`w-full h-full ${study.coverFit === 'contain' ? 'object-contain p-4 bg-white' : 'object-cover'}`}
+            />
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Body sections -->
+  <section class="pb-20 bg-white">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-10">
+        {study.sections.map((section) => (
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-3 tracking-tight">
+              {section.heading}
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              {section.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section class="py-20 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+        Want something like this built?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        We scope the problem properly first, then build production systems that companies rely on. Book a call and tell us what you need.
+      </p>
+      <button
+         data-cal-link="wisabianalytics/initial-consultation"
+         data-cal-namespace="initial-consultation"
+         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+         class="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all">
+        Let's talk
+      </button>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
